@@ -1,44 +1,52 @@
-import React, {useState, useReducer} from 'react';
-import {initialState, reducer} from '../reducers'
+import React, { useState, useReducer } from "react";
+import { initialState, reducer } from "../reducers/index";
+import TodoList from "../Components/TodoList";
+import TodoForm from "../Components/TodoForm";
 
 
 const Form = () => {
-    const [state, dispatch] = useReducer(reducer, initialState);
-    const [newListTitle, setNewListTitle] = useState('');
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const [newItem, setNewItem] = useState("");
 
-    const handleListEdit = e => {
-        dispatch({type: 'TOGGLE_LISTEDIT'})
-      };
-    
-      const handleListChanges = e => {
-        setNewListTitle(e.target.value);
-      };
-    
-      const handleListUpdate = e => {
-        dispatch({type:'UPDATE_LIST_TITLE', payload:newListTitle})
-      }
+  const addNewItem = e => {
+    console.log(newItem);
+    e.preventDefault();
+    dispatch({ type: "ADD_ITEM", payload: newItem });
+  };
 
-    return(
-        <div>
-            {!state.completed ?(
-            <h2>
-                {state.item} <i className="far fa-edit" onClick={handleListEdit}/>
-            </h2>
-            ) : (
-            <div>
-            <input
-                className='list_input'
-                type='text'
-                name='newListTitle'
-                placeholder={state.item}
-                value={newListTitle}
-                onChange={handleListChanges}
-            />
-            <button onClick={handleListUpdate}>Update List</button>
-            </div>
-            )}
-        </div>
-    )
-}
+  const togglePurchased = e => {
+    console.log(e);
+    dispatch({ type: "TOGGLE", payload: e });
+  };
 
+  const handleChanges = e => {
+    e.preventDefault();
+    setNewItem(e.currentTarget.value);
+  };
+
+  console.log("handleChanges", newItem);
+
+  const clearPurchased = () => {
+    dispatch({ type: "CLEAR_ITEM" });
+  };
+
+  return (
+    <div className="App">
+      <div className="TodoForm">
+        <TodoForm
+          state={state}
+          handleChanges={handleChanges}
+          addNewItem={addNewItem}
+          newItem={newItem}
+        />
+      </div>
+      <TodoList
+        state={state}
+        groceries={state}
+        togglePurchased={togglePurchased}
+        clearPurchased={clearPurchased}
+      />
+    </div>
+  );
+};
 export default Form

@@ -1,13 +1,111 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css?family=Audiowide&display=swap');
+
+body{
+    background-image: url('https://images.unsplash.com/photo-1533523705247-88786d3e9242?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    margin: 0 auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1{
+    font-family: 'Audiowide', cursive;
+    font-size: 4vw;
+    color: white;
 }
+
+h2{
+  font-family: 'Audiowide', cursive;
+  font-size: 2vw;
+  padding: 3%;
+}
+
+
+.item.completed{
+    filter: saturate(20%);
+    text-decoration: line-through;
+    color:white;
+}
+
+
+input{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: pink;
+    border: purple 1px solid;
+    height: 30px;
+    width: 25vw;
+    font-family: 'Audiowide', cursive;
+}
+
+
+.item {
+  background-color: #b18382;
+  text-align: center;
+  width: 30vw;
+  margin: 2% auto;
+  padding-left: 8px;
+  cursor: pointer;
+  /* padding: 4vh 0; */
+  text-shadow: 4px 2px 3px #c734a0
+}
+
+.item.completed {
+  background-color: #d17d7c;
+  text-decoration: line-through;
+
+}
+
+.check {
+  color: white;
+  font-size: 25px;
+  padding: 2%;
+}
+
+.check.completed {
+  color: greenyellow;
+  text-decoration: line-through;
+}
+
+button{
+margin: 0 2vw;
+background-color: purple;
+border: none;
+padding: 1vh;
+color: #00ffe7;
+text-shadow: 0 0 3px #d8fbf8;}
+
+.list{
+  display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: pink;
+        width: 35vw;
+        height: 5vh;
+   padding: 1%;
+  margin: 2%;
+  text-decoration: none;
+  border-radius: 30px;
+}
+        .list:hover{
+            box-shadow: 5px 3px 0px 0px #1c7386;
+        }
+            .list h2{
+                color: purple;
+                font-family: 'Audiowide', cursive;
+        }
+        .list h2:hover{
+          text-shadow: 1px 3px 0px #dd80f4;}
+
+          .card{
+          display: flex;
+          flex-flow: column;
+          justify-content: left;
+          align-items: center;
+          color: pink;
+          width: 90vw;
+          height: auto;
+          padding: 2% 0;
+        margin: 10vh auto;
+        background-color: rgba(79, 57, 77, 0.73);}
